@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heartlands High School</title>
+
+  <!-- OwlCarousel CSS -->
+  <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Ace Menu CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ace-responsive-menu@0.4.3/ace-responsive-menu.min.css" />
+
+  <!--Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background: white;
+      top: 100%;
+      left: 0;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav ul li ul li a {
+      color: black;
+    }
+
+    .icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icons a {
+      background: #00bcd4;
+      color: white;
+      text-decoration: none;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero .owl-carousel img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 60px;
+      left: 50px;
+      color: white;
+      z-index: 2;
+    }
+
+    .hero-text h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-text h1 {
+      margin: 10px 0 0;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text h3 {
+        font-size: 1rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+      }
+
+      nav ul li {
+        width: 100%;
+      }
+
+      .icons {
+        margin-top: 10px;
+      }
+    }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  nav.active {
+    display: block;
+  }
+}
+
+.option{
+  background-color: rgb(51, 155, 159);
+  color: antiquewhite;
+  text-decoration: solid;
+  text-align: center;
+  padding-right:10 px;
+  text-decoration-thickness: 10mm;
+}
+
+.option:hover{
+  background-color: rgb(40,116,252);
+}
+
+.fs{
+  background-color: rgb(44, 109, 183);
+}
+
+ .highlight-box {
+      background-color: #0097A7; /* teal-like color */
+      color: white;
+      padding: 40px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      position: relative;
+      margin: 50px auto;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .tag {
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      background-color: #333;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWkEdoG5gjiKPydHwm-nAnPn08gVSyfuspRQ&s.jpg" alt="Logo" />
+    Heartlands High School
+  </div>
+  <div class="menu-toggle" id="menu-toggle">
+  ☰
+</div>
+
+  <nav id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+    <ul>
+      <li><a href="#">About Us</a>
+        <ul>
+          <li><a href="#" class="option">Vision</a></li>
+          <li><a href="#" class="option">Leadership</a></li>
+        </ul>
+      </li> 
+      <li><a href="#">Parents</a>
+        <ul>
+          <li><a href="#" class="option">Meeting</a></li>
+          <li><a href="#" class="option">Announcements</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Students</a>
+        <ul>
+          <li><a href="#" class="option">Examination</a></li>
+          <li><a href="C:\Users\Pari\OneDrive\Desktop\HOME\.vscode\adform.html" class="">Admissions </a>
+          </li>
+          <li><a href="#" class="option">Announcements</a></li>
+        </ul>
+      </li>
+      <li><a href="#">News & Letters</a></li>
+      <li><a href="#">Join Us</a></li>
+      <li><a href="#">Transition</a></li>
+      <li><a href="#">Uniform Shop</a>
+        <ul>
+          <li><a href="#" class="option">Girls</a></li>
+          <li><a href="#" class="option">Boys</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="icons">
+    <a href="#">f</a>
+    <a href="#">t</a>
+    <a href="#">@</a>
+    <a href="#">🧠</a>
+    <a href="#">🔍</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="owl-carousel">
+    <img src="https://tpbennett.com/wp-content/uploads/2022/01/Heartlands-High-10_Revised-768x855.jpg" alt="Slide 1" />
+    <img src="https://tpbennett.com/wp-content/uploads/2022/01/Heartlands-High-01-crop-768x551.jpg" alt="Slide 2" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfmhSc42VALWWI4iUgaWMTLeZRjcWjHDsYRw&s.jpg" alt="Slide 3" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h3>HHS SEARCH VALUES:</h3>
+    <h1>SCHOOL MATTERS</h1>
+  </div>
+</section>
+<div class="highlight-box">
+    <div class="tag">HHS Search Values:</div>
+    HEARTLANDS HIGH SCHOOL HAS AT ITS FOUNDATIONS A <br>
+    STRONG SET OF <br>
+    <span>SHARED</span> VALUES THAT WE ACT UPON.
+  </div>
+
+<main>
+  <div class="section">
+    <h2>Welcome</h2>
+    <p>At Heartlands High School we have created a very good, happy and safe school…</p>
+  </div>
+
+  <div class="section">
+    <h2>Upcoming Events & Key Dates</h2>
+    <ul>
+      <li>Hot Weather: June 19th – 20th</li>
+      <li>Parent Governor Vacancy – Dec 2025</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Latest News</h2>
+    <ul>
+      <li>Black History Month 2025</li>
+      <li>AFA Day – Sept 27th 2025</li>
+      <li>Lateness to School – July 2025</li>
+    </ul>
+  </div>
+</main>
+
+<footer class="fs">
+  <p>
+    Headteacher: Ms Elen Roberts &nbsp;|&nbsp;
+    Address: Station Road, Wood Green, N22 7ST &nbsp;|&nbsp;
+    Tel: 020 8826 1230 &nbsp;|&nbsp;
+    Email: office@heartlands.haringey.sch.uk
+  </p>
+  <p>&copy; 2025 Heartlands High School</p>
+</footer>
+
+<!-- JS Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ace-responsive-menu@0.4.3/ace-responsive-menu.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      dots: true,
+      nav: false
+    });
+
+    $("#respMenu").aceResponsiveMenu({
+      resizeWidth: '768',
+      animationSpeed: 'fast',
+      accoridonExpAll: false
+    });
+  });
+
+  document.getElementById("menu-toggle").addEventListener("click", function () {
+  document.querySelector("nav").classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>
